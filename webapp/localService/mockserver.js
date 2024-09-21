@@ -9,7 +9,7 @@ sap.ui.define(["sap/ui/core/util/MockServer"], function (MockServer) {
             // configure
 			MockServer.config({
 				autoRespond: true,
-				autoRespondAfter: 500
+				autoRespondAfter: 200
 			});
 
             // simulate
