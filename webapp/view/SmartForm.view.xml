@@ -23,6 +23,9 @@
 			<smartForm:GroupElement>
 				<smartField:SmartField value="{Price}" />
 			</smartForm:GroupElement>
+			<smartForm:GroupElement>
+				<smartField:SmartField value="{Category}" />
+			</smartForm:GroupElement>
 		</smartForm:Group>
 		<smartForm:Group label="Supplier">
 			<smartForm:GroupElement>

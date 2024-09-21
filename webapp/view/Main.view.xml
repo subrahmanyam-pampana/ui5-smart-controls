@@ -5,4 +5,5 @@
 	>
     <mvc:XMLView viewName="sap.ui.demo.smartControls.view.SmartField"/>
     <mvc:XMLView viewName="sap.ui.demo.smartControls.view.SmartForm"/>
+    <mvc:XMLView viewName="sap.ui.demo.smartControls.view.SmartTable"/>
 </mvc:View>

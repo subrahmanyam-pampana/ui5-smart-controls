@@ -14,7 +14,7 @@
 					sap:updatable="false" MaxLength="20" sap:label="Product ID" />
 				<Property Name="Name" Type="Edm.String" Nullable="false"
 					MaxLength="30" sap:label="Name" />
-				<Property Name="CategoryName" Type="Edm.String" sap:label="Category Description"
+				<Property Name="Category" Type="Edm.String" sap:label="Category Description"
 					sap:updatable="true" />
 				<Property Name="Description" Type="Edm.String" MaxLength="256"
 					sap:label="Description" sap:updatable="true" />
@@ -37,11 +37,23 @@
                 <Property Name="DESCR" Type="Edm.String" MaxLength="25"
                     sap:label="Description" />
             </EntityType>
+            <EntityType Name="Category">
+				<Key>
+					<PropertyRef Name="CAT" />
+				</Key>
+				<Property Name="CAT" Type="Edm.String" MaxLength="4"
+					sap:display-format="UpperCase" sap:text="DESCR" sap:label="Category"
+					sap:filterable="false" />
+				<Property Name="DESCR" Type="Edm.String" MaxLength="25"
+					sap:label="Description" />
+			</EntityType>
             <EntityContainer m:IsDefaultEntityContainer="true"
                 sap:supported-formats="atom json">
                 <EntitySet Name="Products" EntityType="com.sap.wt02.Product" />
                 <EntitySet Name="Currency" EntityType="com.sap.wt02.Currency" />
+                <EntitySet Name="Category" EntityType="com.sap.wt02.Category" />
             </EntityContainer>
+
             <Annotations Target="com.sap.wt02.Product/CurrencyCode"
                 xmlns="http://docs.oasis-open.org/odata/ns/edm">
                 <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
@@ -72,6 +84,55 @@
                         String="tutorial_03_Name" />
                 </Annotations>
             </Annotations>
+            <Annotations Target="com.sap.wt02.Product/Category"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Category" />
+                        <PropertyValue Property="CollectionPath" String="Category" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty"
+                                        PropertyPath="Category" />
+                                    <PropertyValue Property="ValueListProperty"
+                                        String="CAT" />
+                                </Record>
+                                <Record
+                                    Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty"
+                                        String="DESCR" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotations Target="com.sap.wt03.Product/Name"
+                    xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                    <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject"
+                        String="tutorial_03_Name" />
+                </Annotations>
+            </Annotations>
+            <Annotations Target="com.sap.wt02.Product"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="ProductId" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="Price" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="Name" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Value" Path="Category" />
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>						

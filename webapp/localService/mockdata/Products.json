@@ -1,8 +1,25 @@
 [{	
 	"ProductId": "4711",
 	"Name": "Power Projector 4711",
-	"CategoryName": "Projector",
+	"Category": "PRO",
 	"SupplierName": "Titanium",
+	"Description": "A very powerful projector with special features for Internet usability, USB",
+	"Price": 856.49,
+	"CurrencyCode": "EUR"
+},{	
+	"ProductId": "4712",
+	"Name": "Graphics Card 4712",
+	"Category": "GCD",
+	"SupplierName": "Titanium",
+	"Description": "A very powerful projector with special features for Internet usability, USB",
+	"Price": 856.49,
+	"CurrencyCode": "EUR"
+},
+{	
+	"ProductId": "4713",
+	"Name": "Power Projector 4713",
+	"Category": "Projector",
+	"SupplierName": "PRO",
 	"Description": "A very powerful projector with special features for Internet usability, USB",
 	"Price": 856.49,
 	"CurrencyCode": "EUR"
